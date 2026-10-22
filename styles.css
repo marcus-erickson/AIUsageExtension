@@ -1,0 +1,77 @@
+:root {
+  color-scheme: light;
+  --page: #f4f3f0;
+  --surface-1: #fcfcfb;
+  --surface-2: #f0efec;
+  --border: #e3e2dd;
+  --text-primary: #0b0b0b;
+  --text-secondary: #52514e;
+  --text-muted: #77766f;
+  --grid: #e8e7e2;
+  --series-1: #2a78d6;
+  --series-1-soft: #86b6ef;
+  --pace: #8a8984;
+  --good: #0ca30c;
+  --good-text: #006300;
+  --warning: #fab219;
+  --warning-text: #8a5a00;
+  --critical: #d03b3b;
+  --critical-text: #b02a2a;
+  --track: #e6e5e0;
+  --accent: #2a78d6;
+  --radius: 12px;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #121211;
+    --surface-1: #1a1a19;
+    --surface-2: #232321;
+    --border: #2e2e2b;
+    --text-primary: #f0efec;
+    --text-secondary: #c3c2b7;
+    --text-muted: #96958c;
+    --grid: #2a2a27;
+    --series-1: #3987e5;
+    --series-1-soft: #1c5cab;
+    --pace: #77766f;
+    --good-text: #4fcf4f;
+    --warning-text: #fab219;
+    --critical-text: #ee7a7a;
+    --track: #2e2e2b;
+    --accent: #3987e5;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #121211; --surface-1: #1a1a19; --surface-2: #232321; --border: #2e2e2b;
+  --text-primary: #f0efec; --text-secondary: #c3c2b7; --text-muted: #96958c; --grid: #2a2a27;
+  --series-1: #3987e5; --series-1-soft: #1c5cab; --pace: #77766f;
+  --good-text: #4fcf4f; --warning-text: #fab219; --critical-text: #ee7a7a; --track: #2e2e2b; --accent: #3987e5;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--text-primary); font-size: 14px; line-height: 1.45; }
+button {
+  font: inherit; font-size: 13px; padding: 7px 12px; border-radius: 8px; cursor: pointer;
+  border: 1px solid var(--border); background: var(--surface-1); color: var(--text-primary);
+}
+button:hover { background: var(--surface-2); }
+button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+button.primary:hover { filter: brightness(1.08); }
+.muted { color: var(--text-muted); }
+.secondary { color: var(--text-secondary); }
+.num { font-variant-numeric: tabular-nums; }
+
+/* usage bar with pace tick */
+.bar { position: relative; height: 8px; border-radius: 4px; background: var(--track); overflow: visible; }
+.bar > .fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 4px; background: var(--series-1); }
+.bar > .tick { position: absolute; top: -4px; width: 2px; height: 16px; background: var(--text-primary); border-radius: 1px; opacity: .55; }
+
+.status { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; }
+.status .ic { display: inline-grid; place-items: center; width: 16px; height: 16px; border-radius: 50%; font-size: 10px; font-weight: 700; color: #fff; flex: none; }
+.status.good { color: var(--good-text); } .status.good .ic { background: var(--good); }
+.status.warning { color: var(--warning-text); } .status.warning .ic { background: var(--warning); color: #3a2700; }
+.status.critical { color: var(--critical-text); } .status.critical .ic { background: var(--critical); }
+.status.neutral { color: var(--text-secondary); } .status.neutral .ic { background: var(--pace); }

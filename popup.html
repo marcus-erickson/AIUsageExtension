@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>AI Usage Tracker</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  body { width: 340px; background: var(--surface-1); }
+  header { display: flex; align-items: baseline; justify-content: space-between; padding: 14px 16px 6px; }
+  h1 { font-size: 15px; margin: 0; }
+  .plan { font-size: 12px; padding: 2px 8px; border-radius: 999px; background: var(--surface-2); color: var(--text-secondary); }
+  .rows { padding: 4px 16px 8px; }
+  .row { padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .row:last-child { border-bottom: 0; }
+  .top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 7px; }
+  .top .v { font-size: 18px; font-weight: 650; }
+  .meta { display: flex; justify-content: space-between; margin-top: 7px; font-size: 12px; gap: 8px; }
+  .err { margin: 6px 16px; padding: 8px 10px; border-radius: 8px; background: var(--surface-2); font-size: 12px; color: var(--critical-text); }
+  footer { display: flex; gap: 8px; padding: 10px 16px 14px; align-items: center; }
+  footer button { white-space: nowrap; }
+  footer .muted { font-size: 12px; margin-left: auto; text-align: right; }
+  .empty { padding: 18px 16px; color: var(--text-secondary); font-size: 13px; }
+</style>
+</head>
+<body>
+  <header><h1>Claude usage</h1><span class="plan" id="plan"></span></header>
+  <div id="err"></div>
+  <div class="rows" id="rows"></div>
+  <footer>
+    <button class="primary" id="open">Open dashboard</button>
+    <button id="refresh">Refresh</button>
+    <span class="muted" id="updated"></span>
+  </footer>
+<script src="lib/core.js"></script>
+<script src="lib/ui.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>
