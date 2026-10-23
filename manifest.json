@@ -1,10 +1,12 @@
 {
   "manifest_version": 3,
   "name": "AI Usage Tracker",
-  "version": "0.2.0",
-  "description": "Tracks your Claude plan usage over time so you can see your trend, your pace, and when you'll run out.",
+  "version": "0.6.1",
+  "description": "Tracks your AI plan usage (Claude, Grok, Gemini, ChatGPT) over time so you can see your trend, your pace, and when you'll run out.",
   "permissions": ["storage", "alarms", "notifications", "scripting", "tabs"],
-  "host_permissions": ["https://claude.ai/*", "https://*.supabase.co/*"],
+  "host_permissions": ["https://*.supabase.co/*"],
+  "optional_host_permissions": ["https://claude.ai/*", "https://grok.com/*", "https://gemini.google.com/*", "https://chatgpt.com/*"],
+  "options_ui": { "page": "dashboard.html", "open_in_tab": true },
   "background": { "service_worker": "background.js" },
   "action": {
     "default_popup": "popup.html",

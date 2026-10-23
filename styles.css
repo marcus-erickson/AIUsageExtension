@@ -75,3 +75,53 @@ button.primary:hover { filter: brightness(1.08); }
 .status.warning { color: var(--warning-text); } .status.warning .ic { background: var(--warning); color: #3a2700; }
 .status.critical { color: var(--critical-text); } .status.critical .ic { background: var(--critical); }
 .status.neutral { color: var(--text-secondary); } .status.neutral .ic { background: var(--pace); }
+
+/* Provider tabs (dashboard) and group headings (popup) */
+.tabs { display: flex; gap: 4px; margin: 0 0 14px; border-bottom: 1px solid var(--border); }
+.tab { background: none; border: 0; border-bottom: 2px solid transparent; padding: 8px 12px; font: inherit; color: inherit; opacity: .7; cursor: pointer; }
+.tab[aria-selected="true"] { opacity: 1; font-weight: 600; border-bottom-color: currentColor; }
+.tab:focus-visible { outline: 2px solid currentColor; outline-offset: -2px; }
+.grp { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; opacity: .65; margin: 12px 0 4px; }
+
+/* Provider bar at the top of the dashboard */
+.provbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 12px 16px; margin: 0 0 14px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface-1); }
+.provbar b { font-size: 15px; }
+
+/* Providers dropdown */
+.provwrap { position: relative; display: inline-block; }
+.provbtn { font: inherit; font-size: 13px; padding: 5px 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface-1); color: var(--text-primary); cursor: pointer; }
+.provbtn:focus-visible, .provrow input:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.provmenu { max-height: 340px; overflow-y: auto; position: absolute; right: 0; top: calc(100% + 6px); z-index: 30; width: 290px; padding: 6px; background: var(--surface-1); color: var(--text-primary); border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,.18); text-align: left; }
+.provmenu[hidden] { display: none; }
+.provrow { display: flex; gap: 10px; align-items: flex-start; padding: 9px 10px; border-radius: 8px; cursor: pointer; }
+.provrow:hover { background: var(--surface-2); }
+.provrow.off { cursor: default; opacity: .65; }
+.provrow.off:hover { background: none; }
+.provrow input { margin-top: 3px; }
+.provrow b { display: block; font-size: 14px; font-weight: 600; }
+.provrow small { display: block; font-size: 12px; color: var(--text-secondary); line-height: 1.35; }
+
+.plan:empty { display: none; }
+.grpplan { text-transform: none; letter-spacing: 0; font-size: 12px; margin-left: 6px; padding: 1px 8px; border-radius: 999px; background: var(--surface-2); color: var(--text-secondary); }
+
+.planline { margin: 0 0 12px; font-size: 14px; color: var(--text-secondary); }
+.planline b { color: var(--text-primary); font-weight: 600; }
+
+.provnote { margin: -4px 0 12px; font-size: 13px; max-width: 70ch; }
+
+.ovverdict { margin-bottom: 14px; font-weight: 600; }
+.ovgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 14px; }
+.ovrow { margin: 0; }
+.ovhead { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.ovname { background: none; border: 0; padding: 0; font: inherit; font-size: 16px; font-weight: 600; color: inherit; cursor: pointer; }
+.ovname:hover { text-decoration: underline; }
+.ovplan { font-size: 12px; opacity: .7; border: 1px solid var(--border); border-radius: 999px; padding: 1px 8px; }
+.ovgo { margin-left: auto; background: none; border: 0; font: inherit; font-size: 13px; opacity: .7; cursor: pointer; color: inherit; }
+.ovgo:hover { opacity: 1; }
+.ovlim { display: grid; grid-template-columns: 1fr 50px; gap: 4px 10px; align-items: center; padding: 8px 0; border-top: 1px solid var(--border); }
+.ovlim:first-of-type { border-top: 0; }
+.ovlbl { grid-column: 1 / -1; font-size: 13px; opacity: .85; }
+.ovpct { text-align: right; font-weight: 600; }
+.ovlim .status { grid-column: 1; justify-self: start; }
+.ovreset { grid-column: 1 / -1; font-size: 12px; }
+.ovnone { margin: 0; }
